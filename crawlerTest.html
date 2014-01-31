@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <?php 
+            $crawl = new Crawler('https://www.google.com.sg/search?q=dogs&hl=en&source=lnms&tbm=isch&sa=X&ei=EzBDUbTeB460rAfLxIH4Ag&ved=0CAcQ_AUoAQ&biw=1301&bih=678');
+            $images = $crawl->get_images();
+
+            foreach ($images as $k=>$v) {
+                echo "<img src='$v'>";
+            }
+
+            print_r($images);
+        ?>
+    </body>
+</html>
