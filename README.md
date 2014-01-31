@@ -1,5 +1,6 @@
 Spider
 =======
+WS Spider is a php based simple web crawling library which can be used in any php based web application/framework. 
 
 Usage
 
