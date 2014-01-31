@@ -1,22 +1,22 @@
-crawler
+Spider
 =======
 
 Usage
 
 1. Initialize 
 
-  $crawler = new Crawler();<br/>
-  $crawler->url = "crawlerTestVictim.html";<br/>
-  $crawler->init();
+  $spider = new Spider();<br/>
+  $spider->url = "spiderTestVictim.html";<br/>
+  $spider->init();
 
     Or
 
-  $crawler = new Crawler("crawlerTestVictim.html");
+  $spider = new Spider("spiderTestVictim.html");
 
 2. Query
 
   Ex:
 
-    $images = $crawler->getTagAtrributes("img", "src");//Get the images<br/>
-    $headings = $crawler->getInnerText('h1');//Get the headings <br/>
-    $links = $crawler->getTagAtrributes("a", "href");//Get the links
+    $images = $spider->getTagAtrributes("img", "src");//Get the images<br/>
+    $headings = $spider->getInnerText('h1');//Get the headings <br/>
+    $links = $spider->getTagAtrributes("a", "href");//Get the links

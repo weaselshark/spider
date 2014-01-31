@@ -1,5 +1,5 @@
 <?php
-class Crawler {
+class Spider {
 
     public $url = false;
     protected $xpath = false;

@@ -1,23 +1,23 @@
 <?php
 
-require 'crawler.php';
+require 'spider.php';
 
-class crawlerTest extends PHPUnit_Framework_TestCase {
+class spiderTest extends PHPUnit_Framework_TestCase {
     
-    private $crawler;
+    private $spider;
 
-    public function getCrawler() {
+    public function getSpider() {
 
-        if (!$this->crawler instanceof Crawler) {
-            $this->crawler = new Crawler();
+        if (!$this->spider instanceof Spider) {
+            $this->spider = new Spider();
         }
 
-        return $this->crawler;
+        return $this->spider;
     }
 
     public function testGetInnerText() {
 
-        $crawler = new Crawler("crawlerTestVictim.html");
+        $crawler = new Spider("spiderTestVictim.html");
         
         $content = $crawler->getInnerText('p');
         $this->assertEquals('Paragraph one...', $content[0]);
@@ -30,7 +30,7 @@ class crawlerTest extends PHPUnit_Framework_TestCase {
     
     public function testGetTagAtrributes() {
 
-        $crawler = new Crawler("crawlerTestVictim.html");
+        $crawler = new Spider("spiderTestVictim.html");
         
         $images = $crawler->getTagAtrributes("img", "src"); 
         $this->assertEquals(3, count($images));
@@ -49,7 +49,7 @@ class crawlerTest extends PHPUnit_Framework_TestCase {
     
     public function testGetImages() {
 
-        $crawler = new Crawler("crawlerTestVictim.html");
+        $crawler = new Spider("spiderTestVictim.html");
         
         $images = $crawler->getImages();        
         $this->assertEquals('image_one.jpg', $images[0]);
@@ -62,8 +62,8 @@ class crawlerTest extends PHPUnit_Framework_TestCase {
     
     public function testGetHeadings() {
 
-        $crawler = new Crawler();
-        $crawler->url = "crawlerTestVictim.html";
+        $crawler = new Spider();
+        $crawler->url = "spiderTestVictim.html";
         $crawler->init();//Manual initialization
         
         $headings = $crawler->getHeadings(1);//h1 headings
@@ -77,7 +77,7 @@ class crawlerTest extends PHPUnit_Framework_TestCase {
     
     public function testGetParagraphs() {
 
-        $crawler = new Crawler("crawlerTestVictim.html");
+        $crawler = new Spider("spiderTestVictim.html");
         
         $paragraphs = $crawler->getParagraphs();
         $this->assertEquals('Paragraph one...', $paragraphs[0]);
